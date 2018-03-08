@@ -13,6 +13,7 @@ CREATE TABLE book(
 	`id` INT NOT NULL  AUTO_INCREMENT,
 	`name` VARCHAR(30) ,
 	`author` VARCHAR(20),
+	`description` VARCHAR(1000),
 	PRIMARY KEY(`id`)
 
 );
