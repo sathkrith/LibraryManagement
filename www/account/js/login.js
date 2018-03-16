@@ -57,27 +57,19 @@ function signIn()
 					document.getElementById('errorbox').innerHTML='<center>Wrong Username or Password<center>';
 					document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';
 				}
-				else if(myObj[0].localeCompare('user')==0)
+				else if(myObj[0].localeCompare('faculty')==0)
 				{	
-					sessionStorage.setItem("uid", myObj[1]);
 					sessionStorage.setItem("username", user);
-					sessionStorage.setItem("role", myObj[0]);
-					//document.location.href = './UserHome.html';
+					sessionStorage.setItem("type","faculty");
+					document.location.href = '../index.html';
 				}
-				else if(myObj[0].localeCompare('admin')==0)
+				else if(myObj[0].localeCompare('student')==0)
 				{	
-					sessionStorage.setItem("uid", myObj[1]);
 					sessionStorage.setItem("username", user);
-					sessionStorage.setItem("role", myObj[0]);
-					//document.location.href = './AdminHome.html';
+					sessionStorage.setItem("type","student");
+					document.location.href = '../index.html';
 				}
-				else if(myObj[0].localeCompare('retail')==0)
-				{	
-					sessionStorage.setItem("uid", myObj[1]);
-					sessionStorage.setItem("username", user);
-					sessionStorage.setItem("role", myObj[0]);
-					//document.location.href = './RetailHome.html';
-				}
+				
 			}
 		};
 		xhr.open('POST','../../backend/login.php',true);
