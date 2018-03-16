@@ -36,8 +36,8 @@
         <h1>PhoneGap</h1>
         <div id="deviceready" class="blink">
             <script type="text/javascript">
-                if(sessionStorage.getItem['username']==null)
-                window.location.href = "./account/signup.html";
+                if(sessionStorage.getItem('username')==null)
+                    window.location.href = "./account/signup.html";
                 else{
                    document.getElementById("deviceready").innerHTML = "logged in as <br>"
                    +sessionStorage.getItem["username"]+"</br>"+"<button onclick='logout()'>logout</button><br>";
