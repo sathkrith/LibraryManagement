@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+isbn=null;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -57,6 +58,7 @@ var app = {
                   "Format: " + result.format + "\n" +
                   "Cancelled: " + result.cancelled);
                   getBookDetails(result.text)
+                 document.getElementById("borrow").hidden = false;
         },
         function (error) {
             alert("Scanning failed: " + error);
@@ -75,6 +77,31 @@ var app = {
             disableSuccessBeep: false // iOS and Android
         }
      );
+ }
+
+ function search(){
+     query=document.forms['search']['name'].value;
+    xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if(this.readyState==4 && this.status==200)
+        {
+            if(this.responseText.localeCompare('no copies')==0)
+            {   
+                document.getElementById('errorbox').hidden = false;
+                document.getElementById('errorbox').innerHTML='No book found';
+                document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';
+            }
+            else
+            {	
+                getBookDetails(responseText);
+            }
+        
+        }
+    };
+    xhr.open('GET','../backend/search.php?+name='+query,true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send();
  }
 
  function getBookDetails(isbn) {
@@ -116,4 +143,37 @@ var app = {
     $('#book').html(htmlString + "</div>");}
 
     
-  
+  function logout(){
+    sessionStorage.removeItem("uid");
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("role");
+
+    window.location.href = "./account/signup.html";
+
+
+  }
+
+  function borrow(){
+    if(isbn!=null){
+        xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function()
+        {
+            if(this.readyState==4 && this.status==200)
+            {
+                if(this.responseText.localeCompare('true')==0)
+                {
+                    document.getElementById('errorbox').innerHTML='<center>Error in Registration<center>';
+                    document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';
+                }
+                else
+                {	
+                    getBookDetails(responseText);
+                }
+            
+            }
+        };
+        xhr.open('GET','../backend/borrow.php?+isbn='+isbn,true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send(); 
+    }
+  }

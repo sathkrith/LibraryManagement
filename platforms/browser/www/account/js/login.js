@@ -29,7 +29,7 @@ function checkUser()
 				}
 			}
 		};
-		xhr.open('POST','../../Backend/CheckUser.php',false);
+		xhr.open('POST','../../backend/checkuser.php',false);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send('user='+user);
 	}
@@ -62,7 +62,7 @@ function signIn()
 					sessionStorage.setItem("uid", myObj[1]);
 					sessionStorage.setItem("username", user);
 					sessionStorage.setItem("role", myObj[0]);
-					document.location.href = './UserHome.html';
+					document.location.href = './index.html';
 				}
 				else if(myObj[0].localeCompare('admin')==0)
 				{	
@@ -71,7 +71,7 @@ function signIn()
 					sessionStorage.setItem("role", myObj[0]);
 					document.location.href = './AdminHome.html';
 				}
-				else if(myObj[0].localeCompare('retail')==0)
+				else if(myObj[0].localeCompare('faculty')==0)
 				{	
 					sessionStorage.setItem("uid", myObj[1]);
 					sessionStorage.setItem("username", user);
@@ -80,7 +80,7 @@ function signIn()
 				}
 			}
 		};
-		xhr.open('POST','../../Backend/Login.php',true);
+		xhr.open('POST','../../../backend/login.php',true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send('user='+user+'&pass='+pass);
 	}
@@ -120,10 +120,12 @@ function signUp()
 					{	
 						document.getElementById('errorbox').innerHTML='<center>Registration successflu. Proceed to LogIn<center>';
 						document.getElementById('errorbox').style='font-size: 25px; color: black; background-color: #99ff99';
+						window.location.href = "./account/login.html";
+
 					}
 				}
 			};
-			xhr.open('POST','../../Backend/Register.php',true);
+			xhr.open('POST','../../backend/register.php',true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send('user='+user+'&pass='+pass+'&name='+name+'&role='+role);
 		}
