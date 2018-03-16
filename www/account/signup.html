@@ -39,12 +39,21 @@
 							</tr>
 							<tr>
 								<td>
+									<br><br><br>
+									<center>
+										<label>ID:</label>
+										<input class="form-control" type='text' style='width:75%' id='regid' placeholder='Enter id' required>
+									</center>
+								</td>
+							</tr>
+							<tr>
+								<td>
 									<br><br>
 									<center>
-										<label>Role:</label>
-										<select class="form-control" id="regrole" style='font-size:25px; height:40px; width:75%'>
-											<option value='user' selected>User</option>
-											<option value='retail'>Retail</option>
+										<label>Type</label>
+										<select class="form-control" id="regtype" style='font-size:25px; height:40px; width:75%'>
+											<option value='student' selected>Student</option>
+											<option value='faculty'>Faculty</option>
 										</select>
 									</center>
 								</td>
@@ -69,6 +78,24 @@
 							</tr>
 							<tr>
 								<td>
+									<br><br>
+									<center>
+										<label>Email</label>
+										<input class="form-control" type='email' style='width:75%' id='regemail' placeholder='Enter Email' required>
+									</center>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<br><br>
+									<center>
+										<label>Phone</label>
+										<input class="form-control" type='text' style='width:75%' id='regphone' placeholder='Enter phone' required>
+									</center>
+								</td>
+							</tr>
+							<tr>
+								<td>
 									<br><br><br>
 									<center>
 										<input type='button' class='btn btn-info' style='width:35%' onclick='javascript:signUp()' id='loginsubmit' value='Sign Up'>
@@ -79,7 +106,7 @@
 								<td>
 									<br><br>
 									<center>
-										<a href='./Login.html' style='text-decoration:none'>Login to Existing Account</a>
+										<a href='./login.html' style='text-decoration:none'>Login to Existing Account</a>
 									</center>
 									<br>
 								</td>

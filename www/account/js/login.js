@@ -29,7 +29,7 @@ function checkUser()
 				}
 			}
 		};
-		xhr.open('POST','../../backend/checkuser.php',false);
+		xhr.open('POST','../../Backend/CheckUser.php',false);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send('user='+user);
 	}
@@ -62,25 +62,25 @@ function signIn()
 					sessionStorage.setItem("uid", myObj[1]);
 					sessionStorage.setItem("username", user);
 					sessionStorage.setItem("role", myObj[0]);
-					document.location.href = './index.html';
+					//document.location.href = './UserHome.html';
 				}
 				else if(myObj[0].localeCompare('admin')==0)
 				{	
 					sessionStorage.setItem("uid", myObj[1]);
 					sessionStorage.setItem("username", user);
 					sessionStorage.setItem("role", myObj[0]);
-					document.location.href = './AdminHome.html';
+					//document.location.href = './AdminHome.html';
 				}
-				else if(myObj[0].localeCompare('faculty')==0)
+				else if(myObj[0].localeCompare('retail')==0)
 				{	
 					sessionStorage.setItem("uid", myObj[1]);
 					sessionStorage.setItem("username", user);
 					sessionStorage.setItem("role", myObj[0]);
-					document.location.href = './RetailHome.html';
+					//document.location.href = './RetailHome.html';
 				}
 			}
 		};
-		xhr.open('POST','../../../backend/login.php',true);
+		xhr.open('POST','../../backend/login.php',true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send('user='+user+'&pass='+pass);
 	}
@@ -93,7 +93,10 @@ function signUp()
 		user=document.getElementById('reguname').value;
 		pass=document.getElementById('regpass').value;
 		name=document.getElementById('regname').value;
-		role=document.getElementById('regrole').value;
+		type=document.getElementById('regtype').value;
+		id=document.getElementById('regid').value;
+		email=document.getElementById('regemail').value;
+		phone=document.getElementById('regphone').value;
 		if(name.localeCompare('')==0 || name==null || user.localeCompare('')==0 || user==null)
 		{
 			document.getElementById('errorbox').innerHTML='<center>Fill All Empty Fields<center>';
@@ -111,23 +114,20 @@ function signUp()
 						document.getElementById('errorbox').innerHTML='<center>Error in Registration<center>';
 						document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';
 					}
-					else if(this.responseText.localeCompare('True')==0 && role.localeCompare('retail')==0)
+					else if(this.responseText.localeCompare('True')==0 )
 					{	
-						document.getElementById('errorbox').innerHTML='<center>Waiting for Admin approval<center>';
+						document.getElementById('errorbox').innerHTML='<center>Registration successfull. Proceed to LogIn<center>';
 						document.getElementById('errorbox').style='font-size: 25px; color: black; background-color: #99ff99';
+						document.location.href = 'login.html';
 					}
-					else if(this.responseText.localeCompare('True')==0 && role.localeCompare('user')==0)
-					{	
-						document.getElementById('errorbox').innerHTML='<center>Registration successflu. Proceed to LogIn<center>';
-						document.getElementById('errorbox').style='font-size: 25px; color: black; background-color: #99ff99';
-						window.location.href = "./account/login.html";
-
+					else{
+						alert(this.responseText);
 					}
 				}
 			};
 			xhr.open('POST','../../backend/register.php',true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhr.send('user='+user+'&pass='+pass+'&name='+name+'&role='+role);
+			xhr.send('user='+user+'&pass='+pass+'&name='+name+'&type='+type+'&id='+id+'&email='+email+'&phone='+phone);
 		}
 	}
 }
