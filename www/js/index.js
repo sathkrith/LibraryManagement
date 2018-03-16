@@ -99,7 +99,7 @@ var app = {
         
         }
     };
-    xhr.open('GET','../backend/search.php?+name='+query,true);
+    xhr.open('GET','http://localhost/backend/search.php?+name='+query,true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();
  }
@@ -172,7 +172,7 @@ var app = {
             
             }
         };
-        xhr.open('GET','../backend/borrow.php?+isbn='+isbn,true);
+        xhr.open('GET','http://localhost/backend/borrow.php?+isbn='+isbn,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }
