@@ -16,6 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ function load(){
+    alert("his");
+    if(sessionStorage.getItem('username')==null)
+        window.location.href = "./account/signup.html";
+    else{
+        document.getElementById("deviceready").innerHTML = "logged in as <br>"
+        +sessionStorage.getItem("username")+"</br>"+"<button onclick='logout()'>logout</button><br>";
+        document.getElementById("book").hidden=false;
+        }
+}
 isbn=null;
 var app = {
     // Application Constructor
@@ -88,18 +98,18 @@ var app = {
         {
             if(this.responseText.localeCompare('no copies')==0)
             {   
-                document.getElementById('errorbox').hidden = false;
                 document.getElementById('errorbox').innerHTML='No book found';
                 document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';
             }
             else
             {	
                 getBookDetails(responseText);
+                document.getElementById("borrow").style.visibility="visible";
             }
         
         }
     };
-    xhr.open('GET','../backend/search.php?+name='+query,true);
+    xhr.open('GET','http://localhost/backend/search.php?name='+query,true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();
  }
@@ -172,8 +182,10 @@ var app = {
             
             }
         };
-        xhr.open('GET','../backend/borrow.php?+isbn='+isbn,true);
+        xhr.open('GET','http://localhost/backend/borrow.php?+isbn='+isbn,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }
   }
+
+                

@@ -16,13 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- if(sessionStorage.getItem('username')==null)
-    window.location.href = "./account/signup.html";
-else{
-    document.getElementById("deviceready").innerHTML = "logged in as <br>"
-    +sessionStorage.getItem("username"+"</br>"+"<button onclick='logout()'>logout</button><br>";
-    document.getElementById("book").hidden=false;
-            
+ function load(){
+    alert("his");
+    if(sessionStorage.getItem('username')==null)
+        window.location.href = "./account/signup.html";
+    else{
+        document.getElementById("deviceready").innerHTML = "logged in as <br>"
+        +sessionStorage.getItem("username")+"</br>"+"<button onclick='logout()'>logout</button><br>";
+        document.getElementById("book").hidden=false;
+        }
+}
 isbn=null;
 var app = {
     // Application Constructor
