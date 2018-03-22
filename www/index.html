@@ -31,19 +31,11 @@
     <title>Home</title>
 </head>
 
-<body>
+<body onload='load()'>
     <div class="app">
         <h1>PhoneGap</h1>
         <div id="deviceready" class="blink">
-            <script type="text/javascript">
-                if(sessionStorage.getItem('username')==null)
-                    window.location.href = "./account/signup.html";
-                else{
-                   document.getElementById("deviceready").innerHTML = "logged in as <br>"
-                   +sessionStorage.getItem["username"]+"</br>"+"<button onclick='logout()'>logout</button><br>";
-                   document.getElementById("book").hidden=false;
-                }
-            </script>
+            
         </div>
     </div>
 	<div class="book" id="book" hidden>
@@ -52,19 +44,20 @@
 				<button onclick="scan()">scan barcode</button><br>
 			</div>
     </div>
-    <div class="search" id="search" name="search" onsubmit="search()">
-        <form id=search >
-            <input type=text  name="query" placeholder="enter exact name of book to search" required></input>
-            <p type=text id=errorbox hidden></p>
-            <input type=submit value="search"/>
+    <div class="search" id="search" name="search" >
+        <form id=search onsubmit="return search()">
+            <input  type=text  id = 'searchString'  placeholder="enter exact name of book to search" required></input>
+            <p type=text id='errorbox' hidden></p>
+            <input  type=submit value="search"/>
         </form>
     </div>
-    <div class="bookdetails" id="a">
+    <div class="bookdetails" id="bookdetails">
 
     </div>
-    <div class="borrow" id="borrow">
+    <div class="borrow" id="borrow" hidden>
         <button onclick="borrow()">borrow</button>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
