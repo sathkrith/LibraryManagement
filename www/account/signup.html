@@ -47,6 +47,11 @@
                         <div id="errFirst"></div>    
             </div>
 
+			<div class="form-group"> 	 
+					<label for="idno"><span class="req">* </span> ID </label>
+						<input class="form-control" type="text" name="idno" id = "regid"  required /> 
+							<div id="errFirst"></div>    
+				</div>
 
             <div class="form-group">
                 <label for="email"><span class="req">* </span> Email Address: </label> 
@@ -62,8 +67,8 @@
             <div class="form-group">
                 <label for="Type"><span class="req">* </span> Type: </label>
                 <div id="regtype">
-                        <label class="radio-inline"><input type="radio" value="faculty" name="optradio">Student</label>
-                        <label class="radio-inline"><input type="radio" value="student" name="optradio">Faculty</label>     
+                        <label class="radio-inline"><input type="radio" value="faculty" name="optradio" id="student">Student</label>
+                        <label class="radio-inline"><input type="radio" value="student" name="optradio" id="faculty">Faculty</label>     
                 </div>  
             </div>
             
@@ -107,12 +112,6 @@
   document.getElementById("field_terms").setCustomValidity("Please indicate that you accept the Terms and Conditions");
 </script>
         </div><!-- ends col-6 -->
-   
-            <div class="col-md-6">
-                <h1 class="page-header">TSW =|= </h1>
-                <p>Form can be used with TSW Login-Register applet available on Github<br><a href="https://github.com/tradesouthwest/tsw-login-register" title="github" target="_blank">https://github.com/tradesouthwest/tsw-login-register</a></a></p>
-                
-            </div>
 
 	</div>
 </div>

@@ -80,13 +80,20 @@ function signIn()
 
 function signUp()
 {
-	alert("rfrfr")
+
 	if(flag==1)
 	{	
 		user=document.getElementById('reguname').value;
 		pass=document.getElementById('regpass').value;
 		name=document.getElementById('regname').value;
-		type=document.getElementById('regtype').value;
+		if(document.getElementById("student").checked)
+		{
+			type="student"
+		}
+		else
+		{
+			type="faculty"
+		}
 		id=document.getElementById('regid').value;
 		email=document.getElementById('regemail').value;
 		phone=document.getElementById('regphone').value;
