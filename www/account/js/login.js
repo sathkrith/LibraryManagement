@@ -80,22 +80,24 @@ function signIn()
 
 function signUp()
 {
+
 	if(flag==1)
 	{	
 		user=document.getElementById('reguname').value;
 		pass=document.getElementById('regpass').value;
 		name=document.getElementById('regname').value;
-		type=document.getElementById('regtype').value;
-		id=document.getElementById('regid').value;
-		email=document.getElementById('regemail').value;
-		phone=document.getElementById('regphone').value;
-		if(name.localeCompare('')==0 || name==null || user.localeCompare('')==0 || user==null)
+		if(document.getElementById("student").checked)
 		{
-			document.getElementById('errorbox').innerHTML='<center>Fill All Empty Fields<center>';
-			document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';		
+			type="student"
 		}
 		else
 		{
+			type="faculty"
+		}
+		id=document.getElementById('regid').value;
+		email=document.getElementById('regemail').value;
+		phone=document.getElementById('regphone').value;
+
 			xhr = new XMLHttpRequest();
 			xhr.onreadystatechange = function()
 			{
@@ -103,13 +105,13 @@ function signUp()
 				{
 					if(this.responseText.localeCompare('False')==0)
 					{
-						document.getElementById('errorbox').innerHTML='<center>Error in Registration<center>';
-						document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';
+						//document.getElementById('errorbox').innerHTML='<center>Error in Registration<center>';
+						//document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';
 					}
 					else if(this.responseText.localeCompare('True')==0 )
 					{	
-						document.getElementById('errorbox').innerHTML='<center>Registration successfull. Proceed to LogIn<center>';
-						document.getElementById('errorbox').style='font-size: 25px; color: black; background-color: #99ff99';
+						//document.getElementById('errorbox').innerHTML='<center>Registration successfull. Proceed to LogIn<center>';
+						//document.getElementById('errorbox').style='font-size: 25px; color: black; background-color: #99ff99';
 						document.location.href = 'login.html';
 					}
 					else{
@@ -120,6 +122,6 @@ function signUp()
 			xhr.open('POST','http://192.168.0.10/register.php',true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send('user='+user+'&pass='+pass+'&name='+name+'&type='+type+'&id='+id+'&email='+email+'&phone='+phone);
-		}
+		
 	}
 }
