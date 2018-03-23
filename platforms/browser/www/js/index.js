@@ -21,7 +21,7 @@
         window.location.href = "./account/signup.html";
     else{
         document.getElementById("deviceready").innerHTML = "logged in as <br>"
-        +sessionStorage.getItem("username")+"</br>"+"<button onclick='logout()'>logout</button><br>";
+        +sessionStorage.getItem("username")+"</br>";
         document.getElementById("book").hidden=false;
         }
 }
@@ -90,8 +90,7 @@ var app = {
 
  function search(){
      //query=document.forms['search']['name'].value;
-     searchString=document.getElementById('searchString').value;
-     alert(searchString);
+    searchString=document.getElementById('searchString').value;
     xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function()
     {
@@ -99,26 +98,77 @@ var app = {
         {
             if(this.responseText.localeCompare('no copies')==0)
             {   
-                document.getElementById('errorbox').innerHTML='No book found';
-                document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red; display:block';
+                document.getElementById('errorbox').className='alert alert-info';
+                    document.getElementById('errorbox').style='display:block';
+                    document.getElementById('errorbox').innerHTML='No results'
             }
             else
             {	
-                isbn=this.responseText;
-                document.getElementById("bookdetails").innerHTML=isbn;
-                document.getElementById("borrow").style="display:block";
-                getBookDetails(isbn);
+                displaybook(this.responseText);
+                document.getElementById('errorbox').style='display:none';
+                
+                //document.getElementById("bookdetails").innerHTML=isbn;
+                //getBookDetails(isbn);
                 
             }
         
         }
     };
-    xhr.open('GET','http://192.168.0.10/backend/search.php?name='+searchString,true);
+    xhr.open('GET','http://localhost/backend/search.php?name='+searchString,true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();
     return false;
  }
-
+function displaybook(responseText){
+    tablebody=document.getElementById("booktable");
+                tablebody.innerHTML="";
+                books=responseText.split(';').slice(0,-1);
+                console.log(books);
+                for(i=0;i<books.length;i++){
+                    eachbook=books[i].split(',')
+                    name=eachbook[0]
+                    isbn=eachbook[1]
+                    count=eachbook[2]
+                    console.log(isbn);
+                    status=count+" left";
+                    
+                    console.log(name)
+                    row=document.createElement("tr");
+                    nam=document.createElement("td");
+                    isb=document.createElement("td");
+                    sta=document.createElement("td");
+                    btn=document.createElement("td");
+                    var inputElement = document.createElement('input');
+                    inputElement.type = "button";
+                    inputElement.value = "borrow";
+                    inputElement.id=isbn;
+                    inputElement.className = "btn btn-primary";
+                    
+                    btn.appendChild(inputElement);
+                    nam.innerHTML=name;
+                    isb.innerHTML=isbn;
+                    sta.innerHTML=status;
+                    row.appendChild(nam);
+                    row.appendChild(isb);
+                    row.appendChild(sta);
+                    row.appendChild(btn);
+                    tablebody.appendChild(row);
+                    if(count<1){
+                        cur_btn=document.getElementById(isbn);
+                        cur_btn.value="get holdings"
+                        cur_btn.addEventListener('click', function(){
+                            getholdings(this.id);
+                        });
+                    }
+                    else{
+                        isbnele=document.getElementById(isbn).value;
+                        document.getElementById(isbn).addEventListener('click', function(){
+                            borrow(this.id);
+                            
+                        });
+                    }
+                }
+}
  function getBookDetails(isbn) {
     // Query the book database by ISBN code.
     isbn = isbn || "9781451648546"; // Steve Jobs book 
@@ -167,9 +217,10 @@ var app = {
 
 
   }
+  function returnbook(){
 
-  function borrow(){
-    user=sessionStorage.username;
+  }
+  function getholdings(isbn){
     if(isbn!=null){
         xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function()
@@ -178,24 +229,85 @@ var app = {
             {
                 if(this.responseText.localeCompare('False')==0)
                 {
-                    document.getElementById('errorbox').innerHTML='<center>Error in borrow<center>';
-                    document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red; display:block';
+                    document.getElementById('errorbox').className='alert alert-danger';
+                    document.getElementById('errorbox').style='display:block';
+                    document.getElementById('errorbox').innerHTML='Error in getting holdings';
+                }
+                
+                else
+                {   
+                    
+                    getUserDetails(this.responseText);
+                }
+            
+            }
+        };
+        xhr.open('GET','http://localhost/backend/holdings.php?isbn='+isbn,true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send(); 
+    }
+  }
+  function getUserDetails(responseText){
+        tablebody=document.getElementById("usertable");
+                tablebody.innerHTML="";
+                users=responseText.split(';').slice(0,-1);
+                console.log(users);
+                for(i=0;i<users.length;i++){
+                    eachuser=users[i].split(',')
+                    name=eachuser[0]
+                    phone=eachuser[1]
+                    email=eachuser[2]
+                    console.log(email);
+                    
+                    console.log(name)
+                    row=document.createElement("tr");
+                    nam=document.createElement("td");
+                    ph=document.createElement("td");
+                    em=document.createElement("td");
+                    //btn=document.createElement("td");
+                    
+                    nam.innerHTML=name;
+                    ph.innerHTML=phone;
+                    em.innerHTML=email;
+                    row.appendChild(nam);
+                    row.appendChild(ph);
+                    row.appendChild(em);
+                    tablebody.appendChild(row);
+                }
+}
+  function borrow(isbn){
+    user=sessionStorage.username;
+    console.log(isbn);
+    if(isbn!=null){
+        xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function()
+        {
+            if(this.readyState==4 && this.status==200)
+            {
+                if(this.responseText.localeCompare('False')==0)
+                {
+                    document.getElementById('errorbox').className='alert alert-danger';
+                    document.getElementById('errorbox').style='display:block';
+                    document.getElementById('errorbox').innerHTML='Error in borrow';
                 }
                 else if(this.responseText.localeCompare('Exist')==0)
                 {
-                    document.getElementById('errorbox').innerHTML='<center>Already added<center>';
-                    document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red; display:block';
+                    document.getElementById('errorbox').className='alert alert-warning';
+                    document.getElementById('errorbox').style='display:block';
+                    document.getElementById('errorbox').innerHTML='Already added';
+                    
                 }
                 else
                 {	
                     document.getElementById('errorbox').innerHTML='Book Added';
-                    document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: green; display:block';
+                    document.getElementById('errorbox').style='display:block';
+                    document.getElementById('errorbox').className='alert alert-success';
                     getBookDetails(this.responseText);
                 }
             
             }
         };
-        xhr.open('GET','http://192.168.0.10/backend/borrow.php?isbn='+isbn+'&username='+user,true);
+        xhr.open('GET','http://localhost/backend/borrow.php?isbn='+isbn+'&username='+user,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }
