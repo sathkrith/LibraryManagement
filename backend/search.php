@@ -2,12 +2,14 @@
 
 extract($_GET);
 $connect=mysqli_connect('localhost','root','','library');
-$result=mysqli_query($connect,"select isbn from book where name=\"$name\" and count>0");
-
-if($row=mysqli_fetch_array($result))
-{
-    echo json_encode($row);
-
+$result=mysqli_query($connect,"select name,isbn,count from book where name like '%".$name."%' ");
+$output="";
+if($result){
+	while($row=mysqli_fetch_array($result))
+	{
+    	$output = $output.$row['name'].','.$row['isbn'].','.$row['count'].';';
+	}
+	echo $output;
 }
 else
 {
