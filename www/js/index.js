@@ -60,6 +60,19 @@ var app = {
 
 
  function scan(){
+    var permissions = cordova.plugins.permission;
+   // permissions.requestPermissio(permissions.CAMERA, success, error);
+ 
+    function error() {
+    alert('Camera permission is not turned on');
+    }
+    
+    function success( status ) {
+    if( !status.hasPermission ) error();
+    }
+
+    alert("hi");
+
     cordova.plugins.barcodeScanner.scan(
         function (result) {
             alert("We got a barcode\n" +
@@ -114,7 +127,7 @@ var app = {
         
         }
     };
-    xhr.open('GET','http://192.168.0.4/backend/search.php?name='+searchString,true);
+    xhr.open('GET','http://localhost/backend/search.php?name='+searchString,true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();
     return false;
@@ -242,7 +255,7 @@ function displaybook(responseText){
             
             }
         };
-        xhr.open('GET','http://192.168.0.4/backend/holdings.php?isbn='+isbn,true);
+        xhr.open('GET','http://localhost/backend/holdings.php?isbn='+isbn,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }
@@ -307,7 +320,7 @@ function displaybook(responseText){
             
             }
         };
-        xhr.open('GET','http://192.168.0.4/backend/borrow.php?isbn='+isbn+'&username='+user,true);
+        xhr.open('GET','http://localhost/backend/borrow.php?isbn='+isbn+'&username='+user,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }
