@@ -307,7 +307,7 @@ function displaybook(responseText){
             
             }
         };
-        xhr.open('GET','http://localhost/backend/borrow.php?isbn='+isbn+'&username='+user,true);
+        xhr.open('GET','http://192.168.0.4/backend/borrow.php?isbn='+isbn+'&username='+user,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }

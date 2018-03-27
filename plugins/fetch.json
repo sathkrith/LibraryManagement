@@ -162,7 +162,7 @@
   "phonegap-plugin-barcodescanner": {
     "source": {
       "type": "registry",
-      "id": "phonegap-plugin-barcodescanner@7.0.2"
+      "id": "phonegap-plugin-barcodescanner@~7.0.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -170,7 +170,7 @@
   "cordova-plugin-android-permissions": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-android-permissions"
+      "id": "cordova-plugin-android-permissions@~1.0.0"
     },
     "is_top_level": true,
     "variables": {}
