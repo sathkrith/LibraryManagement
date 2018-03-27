@@ -114,7 +114,7 @@ var app = {
         
         }
     };
-    xhr.open('GET','http://localhost/backend/search.php?name='+searchString,true);
+    xhr.open('GET','http://192.168.0.4/backend/search.php?name='+searchString,true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();
     return false;
@@ -242,7 +242,7 @@ function displaybook(responseText){
             
             }
         };
-        xhr.open('GET','http://localhost/backend/holdings.php?isbn='+isbn,true);
+        xhr.open('GET','http://192.168.0.4/backend/holdings.php?isbn='+isbn,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }

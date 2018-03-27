@@ -29,7 +29,7 @@ function checkUser()
 				}
 			}
 		};
-		xhr.open('POST','http://localhost/backend/CheckUser.php',false);
+		xhr.open('POST','http://192.168.0.4/backend/CheckUser.php',false);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send('user='+user);
 	}
@@ -72,7 +72,7 @@ function signIn()
 				
 			}
 		};
-		xhr.open('POST','http://localhost/backend/login.php',true);
+		xhr.open('POST','http://192.168.0.4/backend/login.php',true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send('user='+user+'&pass='+pass);
 	}
@@ -122,7 +122,7 @@ function signUp()
 					}
 				}
 			};
-			xhr.open('POST','http://localhost/backend/register.php',true);
+			xhr.open('POST','http://192.168.0.4/backend/register.php',true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send('user='+user+'&pass='+pass+'&name='+name+'&type='+type+'&id='+id+'&email='+email+'&phone='+phone);
 		
