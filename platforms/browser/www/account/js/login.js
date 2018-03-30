@@ -29,7 +29,7 @@ function checkUser()
 				}
 			}
 		};
-		xhr.open('POST','http://192.168.0.4/backend/CheckUser.php',false);
+		xhr.open('POST','http://192.168.43.229/backend/CheckUser.php',false);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send('user='+user);
 	}
@@ -72,7 +72,7 @@ function signIn()
 				
 			}
 		};
-		xhr.open('POST','http://192.168.0.4/backend/login.php',true);
+		xhr.open('POST','http://192.168.43.229/backend/login.php',true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send('user='+user+'&pass='+pass);
 	}
@@ -80,8 +80,6 @@ function signIn()
 
 function signUp()
 {
-	alert("ff");
-	console.log("f");
 
 	if(flag==1)
 	{	
@@ -109,7 +107,6 @@ function signUp()
 					{
 						//document.getElementById('errorbox').innerHTML='<center>Error in Registration<center>';
 						//document.getElementById('errorbox').style='font-size: 25px; color: white; background-color: red';
-						alert("fuck you");
 					}
 					else if(this.responseText.localeCompare('True')==0 )
 					{	
@@ -122,7 +119,7 @@ function signUp()
 					}
 				}
 			};
-			xhr.open('POST','http://192.168.0.4/backend/register.php',true);
+			xhr.open('POST','http://192.168.43.229/backend/register.php',true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send('user='+user+'&pass='+pass+'&name='+name+'&type='+type+'&id='+id+'&email='+email+'&phone='+phone);
 		

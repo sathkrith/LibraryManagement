@@ -27,7 +27,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <title>Home</title>
 </head>
@@ -50,10 +50,9 @@
 	<div class="book" id="book" hidden>
 			<div class="scanbutton">
 				<button class="btn btn-default" onclick="scan()">scan barcode</button>
-                <button class="btn btn-default" onclick="returnbook()">Return book</button>
                 <button class="btn btn-default" onclick='logout()'>logout</button>
 			</div>
-
+            <div  class="bookdet container" id="bookdet" ></div>
     </div>
     <form id=search  onsubmit="return search()">
         <div class="input-group">
@@ -63,7 +62,8 @@
             </div>
         </div>
     </form>
-    <div id='errorbox'></div>
+<!--     <button class="btn btn-default" type="button" onclick="borrow()">borrow</button>
+ -->    <div id='errorbox'></div>
     <div class="bookdetails" id="bookdetails">
         <table id="books" class="table table-hover">
             <thead>

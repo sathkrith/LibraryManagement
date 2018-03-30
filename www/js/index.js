@@ -71,7 +71,6 @@ var app = {
     if( !status.hasPermission ) error();
     }
 
-    alert("hi");
 
     cordova.plugins.barcodeScanner.scan(
         function (result) {
@@ -79,8 +78,11 @@ var app = {
                   "Result: " + result.text + "\n" +
                   "Format: " + result.format + "\n" +
                   "Cancelled: " + result.cancelled);
+                  if(result.text.length>0){
                   getBookDetails(result.text)
                  document.getElementById("borrow").hidden = false;
+                 
+                  }
         },
         function (error) {
             alert("Scanning failed: " + error);
@@ -127,7 +129,7 @@ var app = {
         
         }
     };
-    xhr.open('GET','http://localhost/backend/search.php?name='+searchString,true);
+    xhr.open('GET','http://192.168.43.229/backend/search.php?name='+searchString,true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send();
     return false;
@@ -154,6 +156,7 @@ function displaybook(responseText){
                     var inputElement = document.createElement('input');
                     inputElement.type = "button";
                     inputElement.value = "borrow";
+                    
                     inputElement.id=isbn;
                     inputElement.className = "btn btn-primary";
                     
@@ -166,6 +169,7 @@ function displaybook(responseText){
                     row.appendChild(sta);
                     row.appendChild(btn);
                     tablebody.appendChild(row);
+                    
                     if(count<1){
                         cur_btn=document.getElementById(isbn);
                         cur_btn.value="get holdings"
@@ -175,6 +179,7 @@ function displaybook(responseText){
                     }
                     else{
                         isbnele=document.getElementById(isbn).value;
+                        getElementById(isbn).style.visibility="hidden";
                         document.getElementById(isbn).addEventListener('click', function(){
                             borrow(this.id);
                             
@@ -197,7 +202,7 @@ function displaybook(responseText){
             // Start off by defining a variable called htmlString
             var htmlString = "<div>";
             htmlString +=JSON.stringify(data);
-            $('#book').html(htmlString + "</div>");
+            $('#bookdet').html(htmlString + "</div>");
             // For each of the JSON API results... 
            $.each(data.items, function (i, item) {
                 // Add some HTML with CSS
@@ -214,10 +219,20 @@ function displaybook(responseText){
                 htmlString += '<p class="small">' + item.volumeInfo.description + '</p>';
                 htmlString += '<p class="well small">Extract: "' + item.searchInfo.textSnippet + '"<a href="' + item.accessInfo.webReaderLink + '" target="_blank"> Read more</a></p>';
                 htmlString += '</div>';
-                $('#book').html(htmlString + "</div>");
+                $('#bookdet').html(htmlString + "</div>");
+                
             });
+            var inputElement = document.createElement('input');
+                    inputElement.type = "button";
+                    inputElement.value = "borrow";
+                    inputElement.id=isbn;
+                    inputElement.className = "btn btn-primary";
+                    document.getElementById('bookdet').appendChild(inputElement);
+                    document.getElementById(isbn).addEventListener('click', function(){
+                        borrow(this.id);});
             // And then wherever there's a div with an ID of 'book' in the HTML, replace it with our htmlString. See over on the right for the results!     
         }
+        
     }
 
     
@@ -255,7 +270,7 @@ function displaybook(responseText){
             
             }
         };
-        xhr.open('GET','http://localhost/backend/holdings.php?isbn='+isbn,true);
+        xhr.open('GET','http://192.168.43.229/backend/holdings.php?isbn='+isbn,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }
@@ -320,7 +335,7 @@ function displaybook(responseText){
             
             }
         };
-        xhr.open('GET','http://localhost/backend/borrow.php?isbn='+isbn+'&username='+user,true);
+        xhr.open('GET','http://192.168.43.229/backend/borrow.php?isbn='+isbn+'&username='+user,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send(); 
     }

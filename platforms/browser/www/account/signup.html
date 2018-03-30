@@ -1,7 +1,8 @@
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="./js/signin.js"></script>
     <script src="./js/login.js"></script>
@@ -43,7 +44,7 @@
 
             <div class="form-group"> 	 
                 <label for="Name"><span class="req">* </span> Name: </label>
-                    <input class="form-control" type="text" name="firstname" id = "reguname" onkeyup = "Validate(this)" required /> 
+                    <input class="form-control" type="text" name="firstname" id = "regname" onkeyup = "Validate(this)" required /> 
                         <div id="errFirst"></div>    
             </div>
 
@@ -75,7 +76,7 @@
 
             <div class="form-group">
                 <label for="username"><span class="req">* </span> User name:  <small>This will be your login user name</small> </label> 
-                    <input class="form-control" type="text" name="username" id = "regname" onkeyup = "Validate(this)" placeholder="minimum 6 letters" required />  
+                    <input class="form-control" type="text" name="username" id = "reguname" onkeyup = "Validate(this)" placeholder="minimum 6 letters" required />  
                         <div id="errLast"></div>
             </div>
 
