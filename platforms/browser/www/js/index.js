@@ -16,6 +16,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+function onSuccess(result){
+    console.log("Success:"+result);
+  }
+   
+  function onError(result) {
+    console.log("Error:"+result);
+  }
+
+function call()
+{
+
+    alert(window.plugins+"   gggg")
+    alert(window.plugins.callNumber+" bbbbbb")
+    alert(window.plugins.CallNumber.callNumber+" hhhhhhhhh")
+    window.plugins.CallNumber.callNumber(onSuccess, onError, "9008951702", true);
+
+}
+
  function load(){
     if(sessionStorage.getItem('username')==null)
         window.location.href = "./account/signup.html";
