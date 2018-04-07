@@ -116,11 +116,11 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="cordova-plugin-android-permissions" spec="~1.0.0" />
-
     <plugin name="phonegap-plugin-barcodescanner" spec="~7.0.2" />
-   <config-file target="AndroidManifest.xml" parent="/*" mode="merge">
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-</config-file>
+    <config-file mode="merge" parent="/*" target="AndroidManifest.xml">
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-feature android:name="android.hardware.camera" />
+        <uses-feature android:name="android.hardware.camera.autofocus" />
+    </config-file>
+    <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
 </widget>

@@ -39,6 +39,9 @@
     },
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "com.library.automation"
+    },
+    "mx.ferreyra.callnumber": {
+      "PACKAGE_NAME": "com.library.automation"
     }
   },
   "dependent_plugins": {
