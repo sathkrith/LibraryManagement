@@ -28,7 +28,10 @@ function onSuccess(result){
 function call()
 {
 
-window.plugins.CallNumber.callNumber(onSuccess, onError, "9008951702", true);
+    alert(window.plugins+"   gggg")
+    alert(window.plugins.callNumber+" bbbbbb")
+    alert(window.plugins.CallNumber.callNumber+" hhhhhhhhh")
+    window.plugins.CallNumber.callNumber(onSuccess, onError, "9008951702", true);
 
 }
 
