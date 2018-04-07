@@ -19,89 +19,31 @@
     specific language governing permissions and limitations
     under the License.
 -->
+
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+         <!--WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323--> 
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <h1><a href="#" onclick='call()'>call</a></h1><br>
+        <h1><a href="#" onclick='email()'>Send Mail</a></h1>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script>
+            function call(){
+                window.open("tel:+919685968574", "_system"); // or if _system doesnt work
+                window.open("tel:+919685968574", "_blank");
+            }
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <title>Home</title>
-</head>
-
-<body>
-<!--      <div class='container'>
-     <ul class="nav nav-pills nav-justified">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Menu 1</a></li>
-    <li><a href="#">Menu 2</a></li>
-    <li><a href="#">Menu 3</a></li>
-  </ul>
-</div> -->
-    <div class="app">
-        <div id="deviceready" class="container">
-            
-        </div>
-    
-      
-	<div class="book" id="book" >
-			<div class="scanbutton">
-				<button class="btn btn-default" onclick="call()">scan barcode</button>
-                <button class="btn btn-default" onclick='logout()'>logout</button>
-			</div>
-            <div  class="bookdet container" id="bookdet" ></div>
-    </div>
-    <form id=search  onsubmit="return search()">
-        <div class="input-group">
-            <input class="form-control" type=text  id = 'searchString'  placeholder="Enter name of book to search" required></input>
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-plus">Search</span></button>
-            </div>
-        </div>
-    </form>
-<!--     <button class="btn btn-default" type="button" onclick="borrow()">borrow</button>
- -->    <div id='errorbox'></div>
-    <div class="bookdetails" id="bookdetails">
-        <table id="books" class="table table-hover">
-            <thead>
-                <tr>
-                    <td id="bookname"></td>
-                    <td id="isbn"></td>
-                    <td id="status"></td>
-                    <td ></td>
-                </tr>
-            </thead>
-            <tbody id="booktable">
-                
-            </tbody>
-        </table>
-    </div>
-    <div class="table-responsive">
-        <table id="users" class="table table-hover">
-            <thead>
-                <tr>
-                    <td id="username"></td>
-                    <td id="email"></td>
-                    <td id="phone"></td>
-                    <td ></td>
-                </tr>
-            </thead>
-            <tbody id="usertable">
-                
-            </tbody>
-        </table>
-    </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-</body>
-
+            function email(){
+                window.open("mailto:abc@gmail.com?subject=Hello", "_system"); // or if _system doesnt work
+                window.open("mailto:abc@gmail.com?subject=Hello", "_blank");
+            }
+        </script>
+    </body>
 </html>
