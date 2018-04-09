@@ -16,46 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- function load(){
-    if(sessionStorage.getItem('username')==null)
-        window.location.href = "./account/signup.html";
-    else{
-        document.getElementById("deviceready").innerHTML = "logged in as <br>"
-        +sessionStorage.getItem("username")+"</br>";
-        document.getElementById("book").hidden=false;
-        }
-}
-isbn=null;
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        console.log('Received Event: ' + id);
-    }
-};
-
-
  function scan(){
     var permissions = cordova.plugins.permission;
    // permissions.requestPermissio(permissions.CAMERA, success, error);
-    alert(permissions);
+    alert(cordova.plugins);
     function error() {
     alert('Camera permission is not turned on');
     }
@@ -95,6 +59,43 @@ var app = {
         }
      );
  }
+ function load(){
+    if(sessionStorage.getItem('username')==null)
+        window.location.href = "./account/signup.html";
+    else{
+        document.getElementById("deviceready").innerHTML = "logged in as <br>"
+        +sessionStorage.getItem("username")+"</br>";
+        document.getElementById("book").hidden=false;
+        }
+}
+isbn=null;
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        console.log('Received Event: ' + id);
+    }
+};
+
+
+
 
  function search(){
      //query=document.forms['search']['name'].value;
