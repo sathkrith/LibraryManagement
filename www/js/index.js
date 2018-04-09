@@ -46,14 +46,7 @@ var app = {
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
+    receivedEvent: function(id) 
         console.log('Received Event: ' + id);
     }
 };
@@ -62,7 +55,7 @@ var app = {
  function scan(){
     var permissions = cordova.plugins.permission;
    // permissions.requestPermissio(permissions.CAMERA, success, error);
- 
+    alert(permissions);
     function error() {
     alert('Camera permission is not turned on');
     }
