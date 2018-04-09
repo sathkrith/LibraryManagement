@@ -46,7 +46,7 @@ var app = {
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) 
+    receivedEvent: function(id) {
         console.log('Received Event: ' + id);
     }
 };
