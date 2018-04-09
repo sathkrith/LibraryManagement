@@ -1,0 +1,3 @@
+title:London
+category:Travel
+abstract:Gives facts, history, and data on London, and provides information on accommodations, restaurants, sights, walks, and drives for each section of the city.

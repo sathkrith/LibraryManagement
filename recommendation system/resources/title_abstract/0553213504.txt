@@ -1,0 +1,3 @@
+title:The Count of Monte Cristo
+category:Fiction
+abstract:Edmund Dantes, unjustly convicted of aiding the exiled Napoleon, escapes after fourteen years of imprisonment and seeks his revenge in Paris.

@@ -1,0 +1,3 @@
+title:Elements of Programming with Perl
+category:Computers
+abstract:A tutorial for Perl programming and the particulars of Perl syntax, as well as good style and structure and maintainability of the code, also includes advanced concepts--such as modular programming, abstract datastructures, and object-oriented programming. Original. (Intermediate).

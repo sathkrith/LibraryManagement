@@ -1,0 +1,3 @@
+title:The Princess Bride
+category:Fiction
+abstract:A writer's view on life and art are revealed during his attempts to edit the children's classic

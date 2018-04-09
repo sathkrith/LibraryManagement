@@ -1,0 +1,3 @@
+title:The Adventures of Augie March
+category:Fiction
+abstract:Augie's nonconformity leads him into an eventful, humorous, and sometimes earthy way of life.

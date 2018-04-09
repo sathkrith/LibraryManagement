@@ -1,0 +1,3 @@
+title:The Cuckoo's Egg
+category:Computers
+abstract:A true account of computer espionage describes a year-long single-handed hunt for a computer thief who sold information from American computer files to Soviet intelligence agents

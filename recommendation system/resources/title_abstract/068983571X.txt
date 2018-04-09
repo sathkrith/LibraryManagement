@@ -1,0 +1,3 @@
+title:The Hound of the Baskervilles
+category:Fiction
+abstract:When Sir Charles Baskerville is found mysteriously dead, Sherlock Holmes looks into the case.

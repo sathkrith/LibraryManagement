@@ -1,0 +1,3 @@
+title:Sir Gawain and the Green Knight
+category:Fiction
+abstract:The Green Knight, a mysteriously powerful creature, tests the honor and courage of King Arthur's youngest knight.

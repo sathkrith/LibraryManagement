@@ -1,0 +1,3 @@
+title:Fahrenheit 451
+category:Book burning
+abstract:Guy Montag es un bombero, y el trabajo de un bombero es quemar libros, que están prohibidos porque son cause de discordia y sufrimiento.

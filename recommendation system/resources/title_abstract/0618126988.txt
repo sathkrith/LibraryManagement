@@ -1,0 +1,3 @@
+title:The Silmarillion
+category:Fiction
+abstract:Tales and legends chronicling the world's beginnings and the happenings of the First Age, focusing on the theft of the Simarils--the three jewels crafted by Fèeanor--by Morgoth, first Dark Lord of Middle-earth.

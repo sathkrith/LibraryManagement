@@ -1,0 +1,3 @@
+title:Flu
+category:Medical
+abstract:Describes the great flu epidemic of 1918, an outbreak that killed some forty million people worldwide, and discusses the efforts of scientists and public health officials to understand and prevent another lethal pandemic

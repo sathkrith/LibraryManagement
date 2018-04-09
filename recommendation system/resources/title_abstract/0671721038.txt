@@ -1,0 +1,3 @@
+title:The New Hugo Winners
+category:Fiction
+abstract:An anthology of the best science fiction stories from 1986-1988 includes such topics as post-holocaust survival and friendship

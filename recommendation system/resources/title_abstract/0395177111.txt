@@ -1,0 +1,3 @@
+title:The Hobbit
+category:Fiction
+abstract:The adventures of the well-to-do hobbit, Bilbo, Baggins, who lived happily in his comfortable home until a wandering wizard granted his wish.

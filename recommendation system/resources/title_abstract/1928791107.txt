@@ -1,0 +1,3 @@
+title:The MP3 and Internet Audio Handbook
+category:Computers
+abstract:The MP3 and Internet Audio Handbook explains the digital music revolution and demystifies the technical aspects of downloading, recording and playing music on a PC.

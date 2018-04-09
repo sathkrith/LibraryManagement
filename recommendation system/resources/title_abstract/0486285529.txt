@@ -1,0 +1,3 @@
+title:Solv-a-crime Puzzles
+category:Games
+abstract:Challenges the reader to solve forty-seven crimes, and provides solutions

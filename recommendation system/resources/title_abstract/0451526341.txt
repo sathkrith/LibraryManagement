@@ -1,0 +1,3 @@
+title:Animal Farm
+category:Fiction
+abstract:A satire on totalitarianism in which farm animals overthrow their human owner and set up their own government

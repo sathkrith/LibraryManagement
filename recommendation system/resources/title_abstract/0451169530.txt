@@ -1,0 +1,3 @@
+title:The Stand
+category:Fiction
+abstract:The ultimate battle between good and evil...

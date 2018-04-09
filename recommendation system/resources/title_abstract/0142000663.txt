@@ -1,0 +1,3 @@
+title:The Grapes of Wrath
+category:Fiction
+abstract:Depicts the hardships and suffering endured by the Joads as they journey from Oklahoma to California during the Depression.
