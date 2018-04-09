@@ -117,7 +117,7 @@
     </platform>
     <plugin name="cordova-plugin-android-permissions" spec="~1.0.0" />
 
-    <plugin name="phonegap-plugin-barcodescanner" spec="~0.7.4">
+    <plugin name="phonegap-plugin-barcodescanner" spec="~7.0.4">
   <param name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes." />
 </plugin>
    <config-file target="AndroidManifest.xml" parent="/*" mode="merge">
